@@ -1,17 +1,20 @@
 ---
 # SPDX-FileCopyrightText: CrazyMax
+# SPDX-FileCopyrightText: Jürgen Mülbert
 #
 # SPDX-License-Identifier: MIT
 #
 name: 'GitHub Labeler'
 
 on:
-  push:
-    branches:
-      - 'main'
-    paths:
-      - '.github/labels.yml'
-      - '.github/workflows/labels.yml'
+  workflow_call:
+    inputs:
+      config-path:
+        required: true
+        type: string
+    secrets:
+      token:
+        required: true
 
 permissions:
   contents: read
@@ -26,8 +29,8 @@ jobs:
         if: success()
         uses: crazy-max/ghaction-github-labeler@v4
         with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          yaml-file: .github/labels.yml
+          github-token: ${{ secrets.token }}
+          yaml-file: ${{ inputs.config-path }}
           skip-delete: false
           dry-run: false
           exclude: |
