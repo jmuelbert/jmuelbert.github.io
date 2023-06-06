@@ -3,15 +3,15 @@
 #
 # SPDX-License-Identifier: MIT
 #
-name: 'GitHub Labeler'
+name: "GitHub Labeler"
 
 on:
   push:
     branches:
-      - 'main'
+      - "main"
     paths:
-      - '.github/labels.yml'
-      - '.github/workflows/labels.yml'
+      - ".github/labels.yml"
+      - ".github/workflows/labels.yml"
 
 permissions:
   contents: read

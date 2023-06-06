@@ -3,7 +3,7 @@
 #
 # SPDX-License-Identifier: EUPL-1.2
 #
-name: 'Write good'
+name: "Write good"
 
 on:
   push:
@@ -12,7 +12,7 @@ on:
       - develop
   pull_request:
     # The branches below must be a subset of the branches above
-    branches: ['main']
+    branches: ["main"]
 
 permissions:
   contents: read
@@ -29,18 +29,6 @@ jobs:
     name: A job to lint Markdown files
     steps:
       - uses: actions/checkout@v3.3.0
-      - name: write-good action step
-        id: write-good
-        uses: tomwhross/write-good-action@v1.6
-      # Use the output from the `write-good` step
-      - name: Get the write-good output
-        run: echo "${{ steps.write-good.outputs.result }}"
-      - name: Post comment
-        uses: mshick/add-pr-comment@v2
-        if: ${{ steps.write-good.outputs.result }}
-
-        with:
-          message: |
-            ${{ steps.write-good.outputs.result }}
-          repo-token: ${{ secrets.GITHUB_TOKEN }}
-          allow-repeats: false # This is the default
+      - name: Check spelling
+        id: spell_check
+        uses: mnahinkhan/writegood-action@master

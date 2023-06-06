@@ -28,7 +28,9 @@ body:
     id: tf-nightly
     attributes:
       label: Have you reproduced the bug with TF nightly?
-      description: It is strongly suggested that you have reproduced the bug with [TF nightly](https://www.tensorflow.org/install/pip#nightly)
+      description:
+        It is strongly suggested that you have reproduced the bug with [TF
+        nightly](https://www.tensorflow.org/install/pip#nightly)
       options:
         - 'Yes'
         - 'No'
@@ -131,14 +133,16 @@ body:
       label: Current Behaviour?
       description: Also tell us, what did you expect to happen?
       placeholder: Tell us what you see!
-      value: "A bug happened!"
+      value: 'A bug happened!'
     validations:
       required: true
   - type: textarea
     id: code-to-reproduce
     attributes:
       label: Standalone code to reproduce the issue
-      description: Provide a reproducible test case that is the bare minimum necessary to generate the problem. If possible, please share a link to Colab/Jupyter/any notebook.
+      description:
+        Provide a reproducible test case that is the bare minimum necessary to generate
+        the problem. If possible, please share a link to Colab/Jupyter/any notebook.
       placeholder: Tell us what you see!
       value:
       render: shell
@@ -148,13 +152,17 @@ body:
     id: logs
     attributes:
       label: Relevant log output
-      description: Please copy and paste any relevant log output. This will be automatically formatted into code, so no need for backticks.
+      description:
+        Please copy and paste any relevant log output. This will be automatically
+        formatted into code, so no need for backticks.
       render: shell
   - type: checkboxes
     id: terms
     attributes:
       label: Code of Conduct
-      description: By submitting this issue, you agree to follow our [Code of Conduct](https://example.com)
+      description:
+        By submitting this issue, you agree to follow our [Code of
+        Conduct](https://example.com)
       options:
         - label: I agree to follow this project's Code of Conduct
           required: true

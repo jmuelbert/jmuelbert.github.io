@@ -7,10 +7,10 @@ name: Misspell fixer
 
 on:
   push:
-    branches: ['main']
+    branches: ["main"]
   pull_request:
     # The branches below must be a subset of the branches above
-    branches: ['main']
+    branches: ["main"]
 
 permissions:
   contents: read
@@ -21,13 +21,13 @@ jobs:
     steps:
       - uses: actions/checkout@v3.3.0
       - uses: sobolevn/misspell-fixer-action@master
-      - name: 'Check diff'
+      - name: "Check diff"
         run: git diff --exit-code ${{ github.sha }}
       - uses: peter-evans/create-pull-request@v5
         if: failure()
         with:
-          commit-message: 'Fix typos by misspell-fixer'
-          title: 'Fix typos by misspell-fixer for ${{ github.ref }}'
+          commit-message: "Fix typos by misspell-fixer"
+          title: "Fix typos by misspell-fixer for ${{ github.ref }}"
           assignees: ${{ github.actor }}
           reviewers: ${{ github.actor }}
-          branch: 'auto-pr/misspell-fixer/${{ github.ref }}'
+          branch: "auto-pr/misspell-fixer/${{ github.ref }}"

@@ -1,6 +1,4 @@
 {
-  "threshold": 0,
-  "reporters": ["html", "markdown"],
   "ignore": [
     "**/node_modules/**",
     "**/.git/**",
@@ -11,5 +9,7 @@
     "**/.idea/**",
     "**/report/**",
     "**/*.svg"
-  ]
+  ],
+  "reporters": ["html", "markdown"],
+  "threshold": 0
 }

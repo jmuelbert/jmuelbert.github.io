@@ -15,12 +15,12 @@ name: Codacy Security Scan
 
 on:
   push:
-    branches: ['main']
+    branches: ["main"]
   pull_request:
     # The branches below must be a subset of the branches above
-    branches: ['main']
+    branches: ["main"]
   schedule:
-    - cron: '37 2 * * 3'
+    - cron: "37 2 * * 3"
 
 permissions:
   contents: read
@@ -52,7 +52,7 @@ jobs:
           # to get your project token from your Codacy repository
           # You can also omit the token and run the tools that support
           # default configurations
-          project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
+          project-token: ${{ secrets.CODACY_API_TOKEN }}
           verbose: true
           output: results.sarif
           format: sarif

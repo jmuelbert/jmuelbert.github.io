@@ -14,7 +14,7 @@ on:
       - dependabot/**
   schedule:
     # Once every day at midnight UTC
-    - cron: '0 0 * * *'
+    - cron: "0 0 * * *"
   issue_comment:
 
 permissions:
@@ -46,10 +46,10 @@ jobs:
             This issue has been automatically marked as stale because it has not had
             recent activity. It will be closed if no further activity occurs.
           stale-pr-message: >
-            This pull request has been automatically marked as stale because it has not had
-            recent activity. It will be closed if no further activity occurs.
-          exempt-issue-labels: 'gsoc-outreachy,help wanted,in progress'
-          exempt-pr-labels: 'gsoc-outreachy,help wanted,in progress'
+            This pull request has been automatically marked as stale because it has not
+            had recent activity. It will be closed if no further activity occurs.
+          exempt-issue-labels: "gsoc-outreachy,help wanted,in progress"
+          exempt-pr-labels: "gsoc-outreachy,help wanted,in progress"
 
   bump-pr-stale:
     if: >
@@ -68,14 +68,15 @@ jobs:
           days-before-stale: 2
           days-before-close: 1
           stale-pr-message: >
-            This pull request has been automatically marked as stale because it has not had
-            recent activity. It will be closed if no further activity occurs. To keep this
-            pull request open, add a `help wanted` or `in progress` label.
-          exempt-pr-labels: 'help wanted,in progress'
-          any-of-labels: 'bump-formula-pr,bump-cask-pr'
+            This pull request has been automatically marked as stale because it has not
+            had recent activity. It will be closed if no further activity occurs. To
+            keep this pull request open, add a `help wanted` or `in progress` label.
+          exempt-pr-labels: "help wanted,in progress"
+          any-of-labels: "bump-formula-pr,bump-cask-pr"
 
   lock-threads:
-    if: startsWith(github.repository, 'Homebrew/') && github.event_name != 'issue_comment'
+    if:
+      startsWith(github.repository, 'Homebrew/') && github.event_name != 'issue_comment'
     runs-on: ubuntu-latest
     steps:
       - name: Lock Outdated Threads

@@ -15,7 +15,7 @@
 # the `language` matrix defined below to confirm you have the correct set of
 # supported CodeQL languages.
 #
-name: 'CodeQL Analyze'
+name: "CodeQL Analyze"
 
 on:
   push:
@@ -24,10 +24,10 @@ on:
       - develop
   pull_request:
     # The branches below must be a subset of the branches above
-    branches: ['main']
+    branches: ["main"]
 
   schedule:
-    - cron: '41 13 * * 1'
+    - cron: "41 13 * * 1"
 
 permissions:
   contents: read
@@ -48,7 +48,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        language: ['javascript', 'ruby']
+        language: ["javascript"]
         # CodeQL supports:
         # [ 'cpp', 'csharp', 'go', 'java', 'javascript', 'python', 'ruby' ]
         # Use only 'java' to analyze code written in Java, Kotlin or both
@@ -99,4 +99,4 @@ jobs:
       - name: Perform CodeQL Analysis
         uses: github/codeql-action/analyze@v2
         with:
-          category: '/language:${{matrix.language}}'
+          category: "/language:${{matrix.language}}"

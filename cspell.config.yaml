@@ -1,6 +1,6 @@
-version: "0.2"
+version: '0.2'
 files:
-  - "**/*"
+  - '**/*'
 dictionaries:
   - bash
   - cpp-refined
@@ -8,16 +8,16 @@ dictionaries:
   - python-common
 ignorePaths:
   - s**/node_modules/**
-  - "**/vscode-extension/**"
-  - "**/.git/**"
+  - '**/vscode-extension/**'
+  - '**/.git/**'
   - .github/actions/**
   - .github/workflows/**
   - cmake/modules/**
   - docs/api-docs/**
   - cspell.config.yaml
-  - "*.gz"
-  - "*.lock"
-  - "*.svg"
+  - '*.gz'
+  - '*.lock'
+  - '*.svg'
   - .gitignore
   - .devcontainer/.dockerignore
   - .vscode
