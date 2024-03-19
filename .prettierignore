@@ -1,36 +1,39 @@
-# ignore stylesheets for now as this clashes with our linter
-*.css
-*.scss
+/app/assets/javascripts/locale/**/app.js
+
+/fixtures/lib/gitlab/graphql/
+/node_modules/
+/public/
+/vendor/
+/tmp/
+/sitespeed-result/
+/.mypy_cache/
+/build/
+.clang-tidy
+pnpm-lock.yaml
+yarn.lock
+docs/.gitpod.yml
+docs/node_modules
+docs/.changeset
+docs/pnpm-lock.yaml
+docs/yarn.lock
+*.md
+*.mdx
+*.ts
+*.wxs
+CMakeLists.txt
+compile_commands.json
+CONTRIBUTORS
+LICENSE
+LICENSES/
+project-words.txt
+cppcheck_suppressions.txt
+conanfile.py
 
 out
+build
 image
 dist
 bin
 .vscode-test
 
 Pipfile.lock
-
-# build output
-dist/
-.output/
-
-# dependencies
-node_modules/
-
-# logs
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-pnpm-debug.log*
-
-# Ignore files for PNPM, NPM and YARN
-pnpm-lock.yaml
-package-lock.json
-yarn.lock
-
-# environment variables
-.env
-.env.production
-
-# macOS-specific files
-.DS_Store
