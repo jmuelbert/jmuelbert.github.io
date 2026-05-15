@@ -1,0 +1,97 @@
+{
+	"name": "jmuelbert.github.io",
+	"version": "0.1.0",
+	"description": "jmuelbert github website",
+	"main": "index.js",
+	"type": "module",
+	"scripts": {
+		"dev": "astro dev",
+		"docs:start": "astro dev",
+		"docs:build": "astro build",
+		"docs:preview": "astro preview",
+		"docs:astro": "astro",
+		"docs:cspell": "cspell --no-progress",
+		"docs:cspell:docs-site": "cspell --no-progress docs-site/**",
+		"docs:cspell:project-words": "echo '# New Words' >> project-words.txt && cspell --words-only --unique | sort --ignore-case >> project-words.txt",
+		"docs:cspell:suggests": "cspell --no-progress --show-suggestions --show-context",
+		"docs:vale:sync": "pnpm vale sync",
+		"docs:vale": "vale README.md .github/CONTRIBUTING.md .github/CODE_OF_CONDUCT.md",
+		"docs:vale:docs-site": "vale docs-site/docs",
+		"docs:translate": "pnpm docs:write-translations --locale de && pnpm docs:write-translations --locale es",
+		"docs:full-check": "pnpm docs:clear && pnpm docs:cspell:docs-site && pnpm docs:vale:docs-site && pnpm docs:translate && pnpm docs:build && pnpm docs:start",
+		"docs:linkcheck": "markdown-link-check -q -p -c .markdown-link-check.json README.md CHANGELOG.md .github/CONTRIBUTING.md .github/CONTRIBUTORS.md .github/CODE_OF_CONDUCT.md .github/PULL_REQUEST_TEMPLATE.md .github/SECURITY.md .github/SUPPORT.md ",
+		"docs:lint": "pnpm lint:prettier && pnpm lint:markdown && pnpm docs:linkcheck && pnpm docs:vale && pnpm docs:cspell",
+		"lint:biome": "biome check .",
+		"fix:biome": "biome check . --write",
+		"format:biome": "biome format --write",
+		"lint:prettier": "prettier --check .",
+		"format:prettier": "prettier --write .",
+		"lint:markdown": "markdownlint --dot --config .markdownlint.json '**/*.{md,markdown,mdx,adoc,asciidoc}'",
+		"lint:reuse": "echo 'REUSE-Compliance is requested via GitHub Action (Heavy-Check).'",
+		"lint:toml": "taplo lint",
+		"format:toml": "taplo format",
+		"lint:typecheck": "pnpm --recursive run typecheck",
+		"lint:yaml": "echo 'YAML-Check is requested via GitHub Action (Heavy-Check).'",
+		"lint": "pnpm lint:biome && pnpm lint:typecheck && pnpm lint:prettier && pnpm lint:toml && pnpm lint:markdown",
+		"format": "pnpm format:biome && pnpm format:prettier && pnpm format:toml"
+	},
+	"keywords": [
+		"develop",
+		"dev tools",
+		"spellcheck"
+	],
+	"author": "Jürgen Mülbert",
+	"license": "EUPL-1.2",
+	"dependencies": {
+		"@astrojs/mdx": "^5.0.5",
+		"@astrojs/starlight": "^0.39.2",
+		"astro": "^6.3.2",
+		"sharp": "^0.34.5"
+	},
+	"devDependencies": {
+		"@astrojs/starlight-docsearch": "^0.7.0",
+		"@biomejs/biome": "^2.4.15",
+		"@commitlint/config-conventional": "^21.0.1",
+		"@cspell/dict-de-de": "^4.1.2",
+		"@cspell/dict-es-es": "^3.0.8",
+		"@cspell/dict-it-it": "^3.1.6",
+		"@taplo/cli": "^0.7.0",
+		"@types/react": "^19.2.14",
+		"@types/react-dom": "^19.2.3",
+		"@vvago/vale": "^3.12.0",
+		"commitlint": "^21.0.1",
+		"cspell": "^10.0.0",
+		"gh-pages": "^6.3.0",
+		"globals": "^17.6.0",
+		"lefthook": "^2.1.6",
+		"markdownlint": "^0.40.0",
+		"markdownlint-cli": "^0.48.0",
+		"prettier": "^3.8.3",
+		"schema": "link:@astrojs/starlight-docsearch/schema",
+		"typescript": "~6.0.3"
+	},
+	"browserslist": {
+		"production": [
+			">0.5%",
+			"not dead",
+			"not op_mini all"
+		],
+		"development": [
+			"last 3 chrome version",
+			"last 3 firefox version",
+			"last 5 safari version"
+		]
+	},
+	"packageManager": "pnpm@10.33.2",
+	"pnpm": {
+		"overrides": {},
+		"onlyBuiltDependencies": [
+			"@vvago/vale",
+			"cspell",
+			"lefthook"
+		]
+	},
+	"engines": {
+		"node": ">=20.0"
+	}
+}
